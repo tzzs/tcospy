@@ -12,6 +12,7 @@ from qcloud_cos import CosS3Client
 def uploadFiles(file_path):
     """upload files to tencent cos
     :param file_path(string): path to the upload files 
+    :return(string): url of uploaded file
     """
     # 加载配置信息
     config = configparser.ConfigParser()
@@ -44,5 +45,5 @@ def uploadFiles(file_path):
         MAXThread=10,
         EnableMD5=True
     )
-    print(response)
     print(config_qcloud['url'] + file_name)
+    return config_qcloud['url'] + file_name
