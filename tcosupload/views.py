@@ -1,20 +1,25 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from .forms import UploadFileForm
-import time
-from tcosupload.service import *
-from tcospy.Msg import *
+"""views for tocsupload
+"""
 import json
+import time
+
+from django.http import HttpResponse
+from tcospy.Msg import Msg
+
+from tcosupload.service import uploadFiles
 
 # Create your views here.
 
 
-def index(request):
+def index():
+    """index page
+    """
     return HttpResponse("hello world")
 
 
 def upload(request):
-    # upload files to tencent cos
+    """upload files to tencent cos
+    """
 
     msg = Msg()
     msg.code = 200
